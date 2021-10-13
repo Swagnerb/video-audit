@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/styles/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="application">
+
+    <div class="controller">
+      <div class="formContainer">
+        <fieldset>
+          <legend>Controller</legend>
+            <button id="ToggleDataBtn">Toggle Data</button>
+            <button id="ToggleSelectionBtn">Toggle Selection</button>
+            <!-- <button id="ToggleEvaluationBtn">Toggle Evaluation</button> -->
+            <button id="myButton"type="button" onclick="evaluateSelData()">Evaluate</button>
+            <div class="lineups">
+              
+              <div class="lineup-heading">Select Lineups</div>
+              <div class="lineup-row" id="Empire">Empire</div>
+              <div class="lineup-row" id="North Penn">North Penn</div>
+              <div class="lineup-row" id="NY_CLEC_ELM">NY_CLEC_ELM</div>
+              <div class="lineup-row" id="Employee Test">Employee Test</div>
+              <div class="lineup-row" id="Empire Copper">Empire Copper</div>
+              <div class="lineup-row" id="NY_CLEC_BUF">NY_CLEC_BUF</div>
+              <div class="lineup-row" id="Rochester DMA">Rochester DMA</div>
+              <div class="lineup-row" id="North Penn Tioga">North Penn Tioga</div>
+              <div class="lineup-row" id="NP Tioga Copper">NP Tioga Copper</div>
+              <div class="lineup-row" id="NP Bradford Copper">NP Bradford Copper</div>
+              <div class="lineup-row" id="Beaver Valley">Beaver Valley</div>
+
+              <div><button id="lineupBtn">Apply Lineups</button></div>
+            </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="dataContainer">
+      <div class="tableContainer" id="tableContainer">
+        <table id="myTable" class="data-table">
+
+        </table>
+      </div>
+      <div class="evaluation"></div>
+    </div>
+    
+  </div>
+</div>
+
+  <script src="/scripts/functions.js"></script>
+  <script src="/scripts/buildTable.js"></script>
+  <script src="/scripts/selectFromTable.js"></script>
+  <script src="/scripts/controller.js"></script>
+  <script src="/scripts/filterTable.js"></script>
+
+</body>
+</html>
