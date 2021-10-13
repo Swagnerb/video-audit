@@ -7,9 +7,10 @@ $(function () {
     });
   });
 
-  $(".evaluation").on("click", ".keys", function () {
+  $(".evaluation").on("click", ".keys p", function () {
     console.log("clicked");
     var value = $(this).text().toLowerCase();
+    $(this).addClass('selected')
     console.log(value);
     $("#myTableBody tr").filter(function () {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);

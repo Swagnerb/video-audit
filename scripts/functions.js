@@ -100,9 +100,9 @@ function evaluateSelData() {
       .children()
       .slice(i, i + 1)
       .append('<div class="eval-table">' + 
-        '<div class="keys">' +
-          keys.join("<br>") +
-          '</div> <div class="values">' +
+        '<div class="keys"><p>' +
+          keys.join("</p><p>") +
+          '</p></div> <div class="values">' +
           keyValues.join("<br>") +
           "</div></div"
       );

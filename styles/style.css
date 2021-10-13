@@ -200,6 +200,11 @@ html {
   border-right: 1px solid gray;
 }
 
+.evaluation .eval-div .eval-table .keys p.selected {
+  color: gray;
+  background-color: lightblue;
+}
+
 .evaluation .eval-div .eval-table .values {
   padding: 4px;
 }

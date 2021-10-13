@@ -160,6 +160,13 @@
         width: 100%;
         text-align: end;
         border-right: 1px solid gray;
+
+        p {
+          &.selected {
+            color: gray;
+            background-color: lightblue;
+          }
+        }
       }
 
       .values {
