@@ -15,20 +15,19 @@ $(function () {
       );
       attrMyTable();
 
-      let colIndx = 0
-      $('#myTableHead > tr > th').each(function () {
+      let colIndx = 0;
+      $("#myTableHead > tr > th").each(function () {
         // console.log($(this).text().trim(),$(this).css('width'))
-        $('#myTableColumns').append('<col id="col' + colIndx + '">')
-        colIndx ++
-      })
-      
-      $('#myTableColumns').children().slice(-1).css('min-width','200px')  
+        $("#myTableColumns").append('<col id="col' + colIndx + '">');
+        colIndx++;
+      });
+
+      $("#myTableColumns").children().slice(-1).css("min-width", "200px");
     },
   });
 });
 
 $(function () {
-
   var inputWidth = 0; //Sum col widths
   $("#myTableColumns")
     .children()
