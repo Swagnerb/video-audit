@@ -26,6 +26,7 @@ html {
 .application .controller {
   width: 200px;
   height: 100%;
+  padding: 4px 0px;
   border-right: 2px solid black;
   overflow: auto;
   resize: horizontal;
@@ -39,6 +40,13 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 0px;
+  border-right: 0px;
+  border-left: 0px;
+}
+
+.application .controller .formContainer fieldset legend {
+  margin-left: 4px;
 }
 
 .application .controller .formContainer fieldset button {
@@ -52,6 +60,10 @@ html {
   padding: 4px 0px;
 }
 
+.application .controller .formContainer fieldset .lineups .lineup-heading {
+  margin-left: 4px;
+}
+
 .application .controller .formContainer fieldset .lineups .lineup-row {
   padding: 2px 4px;
   margin: 4px 4px 4px 2px;
@@ -63,6 +75,10 @@ html {
   background-color: lightgreen;
 }
 
+.application .controller .formContainer fieldset .lineups .apply-lineups-btn button {
+  margin: 4px 2px 2px;
+}
+
 .application .dataContainer {
   position: relative;
   width: 100%;
@@ -72,7 +88,6 @@ html {
 
 .application .dataContainer .tableContainer {
   height: 65vh;
-  resize: vertical;
   overflow-y: scroll;
 }
 
@@ -148,7 +163,7 @@ html {
 
 .evaluation {
   width: auto;
-  height: auto;
+  height: 29vh;
   padding: 20px;
   display: -ms-grid;
   display: grid;
