@@ -7,7 +7,7 @@ function evaluateSelData() {
   // console.log(selDataKeys);
 
   $(selDataKeys)
-    .slice(3, 19)
+    .slice(2, 19)
     .each(function () {
       var dataKey = this.trim();
       $(".evaluation").append(
