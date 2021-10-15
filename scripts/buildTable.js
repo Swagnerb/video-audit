@@ -28,20 +28,18 @@ $(function () {
 });
 
 $(function () {
-  var inputWidth = 0; //Sum col widths
-  $("#myTableColumns")
-    .children()
-    .slice(0, 4)
-    .each(function () {
-      inputWidth = inputWidth + $(this).width();
-    });
-  $("#myInput").width(inputWidth - 10);
-  $("#myButton").css("left", inputWidth + 10);
-
-  $(function () {
-    $("#myTableBody > tr").each(function () {
-      $(this).children().slice(0, 1).text("");
-      $(this).children().slice(0, 1).addClass("");
-    });
+  $("#myTableBody > tr").each(function () {
+    $(this).children().slice(0, 1).text("");
+    $(this).children().slice(0, 1).addClass("");
   });
+
+  // var inputWidth = 0; //Sum col widths
+  // $("#myTableColumns")
+  //   .children()
+  //   .slice(0, 4)
+  //   .each(function () {
+  //     inputWidth = inputWidth + $(this).width();
+  //   });
+  // $("#myInput").width(inputWidth - 10);
+  // $("#myButton").css("left", inputWidth + 10);
 });

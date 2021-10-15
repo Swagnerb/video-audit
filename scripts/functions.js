@@ -17,7 +17,7 @@ function evaluateSelData() {
 
   $(".evaluation .eval-div").each(function () {
     let divId = $(this).attr("id");
-    $(this).append('<div class="eval-div-header"><p>' + divId + '</p></div>');
+    $(this).append('<div class="eval-div-header"><p>' + divId + "</p></div>");
   });
 
   selDataCount = selData.length;
@@ -99,8 +99,9 @@ function evaluateSelData() {
     $(".evaluation")
       .children()
       .slice(i, i + 1)
-      .append('<div class="eval-table">' + 
-        '<div class="keys"><p>' +
+      .append(
+        '<div class="eval-table">' +
+          '<div class="keys"><p>' +
           keys.join("</p><p>") +
           '</p></div> <div class="values">' +
           keyValues.join("<br>") +
