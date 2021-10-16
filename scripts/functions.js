@@ -128,7 +128,6 @@ function generateTableHead(table, data) {
 }
 
 function generateTable(table, data) {
-  //Build Table Body
   for (let element of data) {
     let row = table.insertRow();
     for (key in element) {
@@ -137,6 +136,16 @@ function generateTable(table, data) {
       cell.appendChild(text);
     }
   }
+}
+
+function attrMyTable() {
+  $("#myTable > tbody").attr("id", "myTableBody");
+  $("#myTable > thead").attr("id", "myTableHead");
+  $("#myTable thead").before("<colgroup></colgroup>");
+  $("#myTable colgroup").attr("id", "myTableColumns");
+  $("#myTable colgroup").before(
+    '<caption>Video Audit<input id="myInput" type="text" placeholder="Search.."></caption>'
+  );
 }
 
 function uniqueArray(array) {
@@ -159,25 +168,3 @@ function uniqueOccurrences(array) {
   result = Object.fromEntries(result);
   return result;
 }
-
-function attrMyTable() {
-  $("#myTable > tbody").attr("id", "myTableBody");
-  $("#myTable > thead").attr("id", "myTableHead");
-  $("#myTable thead").before("<colgroup></colgroup>");
-  $("#myTable colgroup").attr("id", "myTableColumns");
-  $("#myTable colgroup").before(
-    '<caption>Video Audit<input id="myInput" type="text" placeholder="Search.."></caption>'
-  );
-}
-
-// document.onkeyup = function(e) {
-//   if (e.which == 77) {
-//     alert("M key was pressed");
-//   } else if (e.ctrlKey && e.which == 66) {
-//     alert("Ctrl + B shortcut combination was pressed");
-//   } else if (e.ctrlKey && e.altKey && e.which == 89) {
-//     alert("Ctrl + Alt + Y shortcut combination was pressed");
-//   } else if (e.ctrlKey && e.altKey && e.shiftKey && e.which == 85) {
-//     alert("Ctrl + Alt + Shift + U shortcut combination was pressed");
-//   }
-// };
