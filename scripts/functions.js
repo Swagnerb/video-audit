@@ -92,6 +92,8 @@ function evaluateSelData() {
     sourceTransportDeviceUnique
   );
 
+  console.log(evaluatedData);
+
   for (let i = 0; i < evaluatedData.length; i++) {
     var keys = Object.keys(evaluatedData[i]);
     var keyValues = Object.values(evaluatedData[i]);
