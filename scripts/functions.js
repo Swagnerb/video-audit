@@ -58,11 +58,14 @@ function evaluateSelData() {
     // console.log(rowObj);
   }
 
+  console.log(multicastPort);
+
   let lineupsUnique = uniqueOccurrences(lineups);
   let channelsUnique = uniqueOccurrences(channels);
   let stationNamesUnique = uniqueOccurrences(stationNames);
   let multicastsUnique = uniqueOccurrences(multicasts);
   let multicastPortsUnique = uniqueOccurrences(multicastPort);
+  console.log(multicastPortsUnique);
   let outputChannelsUnique = uniqueOccurrences(outputChannel);
   let inputSourceIDUnique = uniqueOccurrences(inputSourceID);
   let internetworkDeviceUnique = uniqueOccurrences(internetworkDevice);
@@ -96,15 +99,15 @@ function evaluateSelData() {
   for (let i = 0; i < evaluatedData.length; i++) {
     let keys = Object.keys(evaluatedData[i]);
     let keyValues = Object.values(evaluatedData[i]);
-    let tRows = []
+    let tRows = [];
 
     for (let a = 0; a < keys.length; a++) {
       let tr = `<tr><td>${keys[a]}</td><td>${keyValues[a]}</td></tr>`;
       tRows.push(tr);
     }
 
-    tRows = tRows.join()
-    tRows = tRows.replace(/,/g,"")
+    tRows = tRows.join();
+    tRows = tRows.replace(/,/g, "");
 
     $(".evaluation")
       .children()
@@ -112,7 +115,6 @@ function evaluateSelData() {
       .append(
         `<table class="eval-table"><colgroup><col class="keys" id="keys"><col class="values" id="values"></colgroup><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody class="eval-tbody">${tRows}</tbody></table>`
       );
-
   }
 }
 
@@ -154,22 +156,27 @@ function attrMyTable() {
   );
 }
 
-function uniqueArray(array) {
-  return $.grep(array, function (el, index) {
-    return index === $.inArray(el, array);
-  });
-}
+// function uniqueArray(array) {
+//   return $.grep(array, function (el, index) {
+//     return index === $.inArray(el, array);
+//   });
+// }
 
 function uniqueOccurrences(array) {
+  console.log(array)
   result = {};
   for (let i = 0; i < array.length; ++i) {
     if (!result[array[i]]) result[array[i]] = 0;
     ++result[array[i]];
   }
-  result = Object.entries(result);
-  result.sort(function (a, b) {
-    return b[1] - a[1];
-  });
-  result = Object.fromEntries(result);
-  return result;
+
+  console.log(result);
+
+  let sorted = Object.fromEntries(
+    Object.entries(result).sort(([,a],[,b]) => a - b)
+  );
+
+  console.log(sorted);
+
+  return sorted;
 }
