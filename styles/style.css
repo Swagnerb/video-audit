@@ -116,11 +116,36 @@ html {
   width: 350px;
 }
 
-.application .dataContainer .tableContainer thead {
-  height: 60px;
+.application .dataContainer .tableContainer colgroup col:nth-of-type(6) {
+  min-width: 130px;
+}
+
+.application .dataContainer .tableContainer colgroup col:nth-of-type(7) {
+  min-width: 130px;
+}
+
+.application .dataContainer .tableContainer colgroup col:nth-of-type(10) {
+  min-width: 100px;
+}
+
+.application .dataContainer .tableContainer colgroup col:nth-of-type(16) {
+  min-width: 120px;
+}
+
+.application .dataContainer .tableContainer colgroup col:nth-of-type(18) {
+  min-width: 140px;
+}
+
+.application .dataContainer .tableContainer colgroup col:nth-of-type(20) {
+  min-width: 150px;
+}
+
+.application .dataContainer .tableContainer colgroup col:nth-of-type(22) {
+  min-width: 150px;
 }
 
 .application .dataContainer .tableContainer thead tr {
+  background-color: #cdfdff;
   border-bottom: 2px solid #333;
 }
 
@@ -132,10 +157,6 @@ html {
   font-variant: small-caps;
   text-align: left;
   border-right: 1px solid #333;
-}
-
-.application .dataContainer .tableContainer thead tr th:nth-of-type(2) {
-  text-align: center;
 }
 
 .application .dataContainer .tableContainer tbody tr {
@@ -182,7 +203,10 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid black;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  border: 2px solid black;
 }
 
 .evaluation .eval-div .eval-div-header {
@@ -193,34 +217,36 @@ html {
   color: #f5f5f5;
   line-height: 1;
   padding: 4px 8px;
-  border-bottom: 1px solid black;
+  border-bottom: 0px;
 }
 
 .evaluation .eval-div .eval-table {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 0px 4px;
+  table-layout: auto;
+  border-collapse: collapse;
 }
 
-.evaluation .eval-div .eval-table .keys {
-  padding: 4px;
-  width: 100%;
-  text-align: end;
+.evaluation .eval-div .eval-table colgroup col:nth-of-type(1) {
   border-right: 1px solid gray;
 }
 
-.evaluation .eval-div .eval-table .keys p.selected {
-  color: gray;
-  background-color: lightblue;
+.evaluation .eval-div .eval-table colgroup col:nth-of-type(2) {
+  width: 5%;
 }
 
-.evaluation .eval-div .eval-table .values {
-  padding: 4px;
+.evaluation .eval-div .eval-table thead tr {
+  display: none;
+}
+
+.evaluation .eval-div .eval-table tbody tr:nth-of-type(2n+1) {
+  background-color: #c6f1fc;
+}
+
+.evaluation .eval-div .eval-table tbody tr td:nth-of-type(1) {
+  text-align: right;
+  padding: 2px 4px;
+}
+
+.evaluation .eval-div .eval-table tbody tr td:nth-of-type(2) {
+  padding: 2px 4px;
 }
 /*# sourceMappingURL=style.css.map */

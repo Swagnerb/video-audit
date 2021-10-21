@@ -1,15 +1,15 @@
 function evaluateSelData() {
-  console.log(selData);
+  // console.log(selData);
   //Create div for each array key
   $(".evaluation").empty();
 
-  var selDataKeys = Object.keys(auditData[0]);
+  let selDataKeys = Object.keys(auditData[0]);
   // console.log(selDataKeys);
 
   $(selDataKeys)
     .slice(2, 19)
     .each(function () {
-      var dataKey = this.trim();
+      let dataKey = this.trim();
       $(".evaluation").append(
         '<div class="eval-div" id="' + dataKey + '"></div>'
       );
@@ -21,25 +21,24 @@ function evaluateSelData() {
   });
 
   selDataCount = selData.length;
-  var lineups = [];
-  var channels = [];
-  var stationNames = [];
-  var multicasts = [];
-  var multicastPort = [];
-  var outputChannel = [];
-  var inputSourceID = [];
-  var internetworkDevice = [];
-  var bentleyEntry = [];
-  var sourceProgram = [];
-  var pmt = [];
-  var pcr = [];
-  var SourceTransportIP = [];
-  var sourcePort = [];
-  var sourceTransportDevice = [];
+  let lineups = [];
+  let channels = [];
+  let stationNames = [];
+  let multicasts = [];
+  let multicastPort = [];
+  let outputChannel = [];
+  let inputSourceID = [];
+  let internetworkDevice = [];
+  let bentleyEntry = [];
+  let sourceProgram = [];
+  let pmt = [];
+  let pcr = [];
+  let SourceTransportIP = [];
+  let sourcePort = [];
+  let sourceTransportDevice = [];
 
   for (let i = 0; i < selData.length; i++) {
-    // console.log(selData)
-    var rowObj = selData[i];
+    let rowObj = selData[i];
     lineups.push(rowObj["SA-Lineup"]);
     channels.push(rowObj["Channel"]);
     stationNames.push(rowObj["Station Name"]);
@@ -55,25 +54,27 @@ function evaluateSelData() {
     SourceTransportIP.push(rowObj["Source Transport IP"]);
     sourcePort.push(rowObj["Source Port"]);
     sourceTransportDevice.push(rowObj["Source Transport Device"]);
+
+    // console.log(rowObj);
   }
 
-  var lineupsUnique = uniqueOccurrences(lineups);
-  var channelsUnique = uniqueOccurrences(channels);
-  var stationNamesUnique = uniqueOccurrences(stationNames);
-  var multicastsUnique = uniqueOccurrences(multicasts);
-  var multicastPortsUnique = uniqueOccurrences(multicastPort);
-  var outputChannelsUnique = uniqueOccurrences(outputChannel);
-  var inputSourceIDUnique = uniqueOccurrences(inputSourceID);
-  var internetworkDeviceUnique = uniqueOccurrences(internetworkDevice);
-  var bentleyEntryUnique = uniqueOccurrences(bentleyEntry);
-  var sourceProgramsUnique = uniqueOccurrences(sourceProgram);
-  var PMTsUnique = uniqueOccurrences(pmt);
-  var PCRsUnique = uniqueOccurrences(pcr);
-  var sourceTransportIPsUnique = uniqueOccurrences(SourceTransportIP);
-  var sourcePortUnique = uniqueOccurrences(sourcePort);
-  var sourceTransportDeviceUnique = uniqueOccurrences(sourceTransportDevice);
+  let lineupsUnique = uniqueOccurrences(lineups);
+  let channelsUnique = uniqueOccurrences(channels);
+  let stationNamesUnique = uniqueOccurrences(stationNames);
+  let multicastsUnique = uniqueOccurrences(multicasts);
+  let multicastPortsUnique = uniqueOccurrences(multicastPort);
+  let outputChannelsUnique = uniqueOccurrences(outputChannel);
+  let inputSourceIDUnique = uniqueOccurrences(inputSourceID);
+  let internetworkDeviceUnique = uniqueOccurrences(internetworkDevice);
+  let bentleyEntryUnique = uniqueOccurrences(bentleyEntry);
+  let sourceProgramsUnique = uniqueOccurrences(sourceProgram);
+  let PMTsUnique = uniqueOccurrences(pmt);
+  let PCRsUnique = uniqueOccurrences(pcr);
+  let sourceTransportIPsUnique = uniqueOccurrences(SourceTransportIP);
+  let sourcePortUnique = uniqueOccurrences(sourcePort);
+  let sourceTransportDeviceUnique = uniqueOccurrences(sourceTransportDevice);
 
-  var evaluatedData = [];
+  let evaluatedData = [];
   evaluatedData.push(
     lineupsUnique,
     channelsUnique,
@@ -92,23 +93,26 @@ function evaluateSelData() {
     sourceTransportDeviceUnique
   );
 
-  console.log(evaluatedData);
-
   for (let i = 0; i < evaluatedData.length; i++) {
-    var keys = Object.keys(evaluatedData[i]);
-    var keyValues = Object.values(evaluatedData[i]);
+    let keys = Object.keys(evaluatedData[i]);
+    let keyValues = Object.values(evaluatedData[i]);
+    let tRows = []
+
+    for (let a = 0; a < keys.length; a++) {
+      let tr = `<tr><td>${keys[a]}</td><td>${keyValues[a]}</td></tr>`;
+      tRows.push(tr);
+    }
+
+    tRows = tRows.join()
+    tRows = tRows.replace(/,/g,"")
 
     $(".evaluation")
       .children()
       .slice(i, i + 1)
       .append(
-        '<div class="eval-table">' +
-          '<div class="keys"><p>' +
-          keys.join("</p><p>") +
-          '</p></div> <div class="values">' +
-          keyValues.join("<br>") +
-          "</div></div"
+        `<table class="eval-table"><colgroup><col class="keys" id="keys"><col class="values" id="values"></colgroup><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody class="eval-tbody">${tRows}</tbody></table>`
       );
+
   }
 }
 
@@ -158,7 +162,7 @@ function uniqueArray(array) {
 
 function uniqueOccurrences(array) {
   result = {};
-  for (var i = 0; i < array.length; ++i) {
+  for (let i = 0; i < array.length; ++i) {
     if (!result[array[i]]) result[array[i]] = 0;
     ++result[array[i]];
   }
@@ -166,48 +170,6 @@ function uniqueOccurrences(array) {
   result.sort(function (a, b) {
     return b[1] - a[1];
   });
-  // console.log(result);
   result = Object.fromEntries(result);
   return result;
 }
-
-(function (console) {
-  console.save = function (data, filename) {
-    if (!data) {
-      console.error("Console.save: No data");
-      return;
-    }
-
-    if (!filename) filename = "console.json";
-
-    if (typeof data === "object") {
-      data = JSON.stringify(data, undefined, 4);
-    }
-
-    var blob = new Blob([data], { type: "text/json" }),
-      e = document.createEvent("MouseEvents"),
-      a = document.createElement("a");
-
-    a.download = filename;
-    a.href = window.URL.createObjectURL(blob);
-    a.dataset.downloadurl = ["text/json", a.download, a.href].join(":");
-    e.initMouseEvent(
-      "click",
-      true,
-      false,
-      window,
-      0,
-      0,
-      0,
-      0,
-      0,
-      false,
-      false,
-      false,
-      false,
-      0,
-      null
-    );
-    a.dispatchEvent(e);
-  };
-})(console);
