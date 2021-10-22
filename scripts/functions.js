@@ -96,8 +96,6 @@ function evaluateSelData() {
     sourceTransportDeviceUnique
   );
 
-  console.log(evaluatedData)
-
   for (let i = 0; i < evaluatedData.length; i++) {
     let tRows = [];
     let evalDiv = evaluatedData[i]
