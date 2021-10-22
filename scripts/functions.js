@@ -96,13 +96,15 @@ function evaluateSelData() {
     sourceTransportDeviceUnique
   );
 
-  for (let i = 0; i < evaluatedData.length; i++) {
-    let keys = Object.keys(evaluatedData[i]);
-    let keyValues = Object.values(evaluatedData[i]);
-    let tRows = [];
+  console.log(evaluatedData)
 
-    for (let a = 0; a < keys.length; a++) {
-      let tr = `<tr><td>${keys[a]}</td><td>${keyValues[a]}</td></tr>`;
+  for (let i = 0; i < evaluatedData.length; i++) {
+    let tRows = [];
+    let evalDiv = evaluatedData[i]
+
+    for (let a = 0; a < evalDiv.length; a++) {
+      let dataRow = evalDiv[a]
+      let tr = `<tr><td>${dataRow[0]}</td><td>${dataRow[1]}</td></tr>`;
       tRows.push(tr);
     }
 
@@ -163,20 +165,18 @@ function attrMyTable() {
 // }
 
 function uniqueOccurrences(array) {
-  console.log(array)
   result = {};
   for (let i = 0; i < array.length; ++i) {
     if (!result[array[i]]) result[array[i]] = 0;
     ++result[array[i]];
   }
 
-  console.log(result);
+  let data = Object.entries(result);
+  console.log(data);
 
-  let sorted = Object.fromEntries(
-    Object.entries(result).sort(([,a],[,b]) => a - b)
-  );
-
-  console.log(sorted);
+  let sorted = data.sort(function (a, b) {
+    return b[1] - a[1];
+  });
 
   return sorted;
 }
